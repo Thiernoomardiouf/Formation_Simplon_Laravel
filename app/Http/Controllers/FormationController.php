@@ -55,6 +55,7 @@ class FormationController extends Controller
         
         $formations = Formation::where('titre', 'like', "%$search%")
                                 ->orWhere('description', 'like', "%$search%")
+                                ->orWhere('categorie', 'like', "%$search%")
                                 ->paginate(6);
 
         return view('formations.research')->with('formation_Search', $formations);
